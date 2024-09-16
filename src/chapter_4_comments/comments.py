@@ -50,7 +50,7 @@ def add(a: int, b: int) -> int:
 
 
 # Better: Let the function name speak for itself
-def add(a: int, b: int) -> int: # type: ignore
+def add(a: int, b: int) -> int:  # type: ignore
     return a + b
 
 

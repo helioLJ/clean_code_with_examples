@@ -5,7 +5,8 @@ class Point:
         self._y = y
 
     def distance_from_origin(self) -> float:
-        return float((self._x ** 2 + self._y ** 2) ** 0.5)
+        return float((self._x**2 + self._y**2) ** 0.5)
+
 
 # Objects vs. Data Structures
 class Rectangle:
@@ -16,13 +17,16 @@ class Rectangle:
     def area(self) -> int:
         return self._width * self._height
 
+
 class RectangleData:
     def __init__(self, width: int, height: int):
         self.width = width
         self.height = height
 
+
 def calculate_area(rectangle_data: RectangleData) -> int:
     return rectangle_data.width * rectangle_data.height
+
 
 # Law of Demeter
 class Wallet:
@@ -35,6 +39,7 @@ class Wallet:
             return amount
         return 0
 
+
 class Person:
     def __init__(self, name: str, wallet: Wallet):
         self._name = name
@@ -43,11 +48,13 @@ class Person:
     def buy_item(self, cost: int) -> int:
         return self._wallet.get_money(cost)
 
+
 # Data Transfer Objects (DTOs)
 class UserDTO:
     def __init__(self, name: str, email: str):
         self.name = name
         self.email = email
+
 
 # Active Record
 class User:
@@ -60,15 +67,17 @@ class User:
         pass
 
     @classmethod
-    def find(cls, user_id: int) -> 'User':
+    def find(cls, user_id: int) -> "User":
         # Find user in database
         return cls(name="John Doe", email="john.doe@example.com")
+
 
 # Separation of Concerns
 class UserData:
     def __init__(self, name: str, email: str):
         self.name = name
         self.email = email
+
 
 class UserService:
     @staticmethod

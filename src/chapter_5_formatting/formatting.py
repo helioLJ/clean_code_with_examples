@@ -14,50 +14,60 @@ def high_level_function() -> None:
     # Implementation details...
     pass
 
+
 def low_level_function() -> None:
     """This function represents a low-level implementation detail."""
     # Specific implementation...
     pass
+
 
 # Vertical Openness
 def function_1() -> None:
     # Implementation...
     pass
 
+
 # Blank line to separate functions
 def function_2() -> None:
     # Implementation...
     pass
+
 
 # Vertical Density
 class User:
     def __init__(self, name: str, age: int) -> None:
         self.name = name
         self.age = age
-    
+
     def get_info(self) -> str:
         return f"{self.name}, {self.age} years old"
+
 
 # Vertical Distance
 class Calculator:
     def add(self, a: int, b: int) -> int:
         return a + b
-    
+
     def subtract(self, a: int, b: int) -> int:
         return a - b
-    
+
     # Other related methods...
+
 
 # Horizontal Formatting
 
 # Line Length
-long_string = ("This is an example of a long string that we might want to "
-               "break into multiple lines to avoid exceeding the recommended "
-               "line length of 80-120 characters.")
+long_string = (
+    "This is an example of a long string that we might want to "
+    "break into multiple lines to avoid exceeding the recommended "
+    "line length of 80-120 characters."
+)
+
 
 # Horizontal Openness and Density
 def calculate(x: int, y: int, z: int) -> int:
     return (x + y) * z
+
 
 # Indentation
 def complex_function(condition_1: bool, condition_2: bool, items: list[Any]) -> int:
@@ -69,17 +79,19 @@ def complex_function(condition_1: bool, condition_2: bool, items: list[Any]) -> 
                 else:
                     item.skip()
         else:
-            handle_else_case() # type: ignore
+            handle_else_case()  # type: ignore
     return 0
+
 
 # Team Rules
 # This entire file should follow the team's agreed-upon formatting rules
 
+
 # Uncle Bob's Formatting Rules
 def example_function(arg1: int, arg2: int) -> int:
-    result = do_something(arg1, arg2) # type: ignore
+    result = do_something(arg1, arg2)  # type: ignore
     if result > 100:
-        handle_large_result(result) # type: ignore
+        handle_large_result(result)  # type: ignore
     else:
-        handle_small_result(result) # type: ignore
+        handle_small_result(result)  # type: ignore
     return 0
