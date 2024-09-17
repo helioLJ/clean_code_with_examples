@@ -141,3 +141,65 @@ if __name__ == "__main__":
     prime_gen = PrimeGenerator(30)
     primes = prime_gen.generate_primes()
     print(f"Primes up to 30: {primes}")
+
+# Liskov Substitution Principle (LSP)
+class Bird:
+    def fly(self) -> str:
+        return "I'm flying!"
+
+class Sparrow(Bird):
+    pass  # Sparrow can use the parent's fly method
+
+class Ostrich(Bird):
+    def fly(self) -> str:
+        return "I can't fly, but I can run fast!"
+
+def make_bird_fly(bird: Bird) -> str:
+    return bird.fly()
+
+# Usage
+sparrow = Sparrow()
+ostrich = Ostrich()
+print(make_bird_fly(sparrow))  # Output: I'm flying!
+print(make_bird_fly(ostrich))  # Output: I can't fly, but I can run fast!
+
+# Interface Segregation Principle (ISP)
+from abc import ABC, abstractmethod
+
+class Printer(ABC):
+    @abstractmethod
+    def print_document(self, document: str) -> None:
+        pass
+
+class Scanner(ABC):
+    @abstractmethod
+    def scan_document(self) -> str:
+        pass
+
+class Fax(ABC):
+    @abstractmethod
+    def fax_document(self, document: str) -> None:
+        pass
+
+class SimplePrinter(Printer):
+    def print_document(self, document: str) -> None:
+        print(f"Printing: {document}")
+
+class AllInOnePrinter(Printer, Scanner, Fax):
+    def print_document(self, document: str) -> None:
+        print(f"Printing: {document}")
+
+    def scan_document(self) -> str:
+        return "Scanned document content"
+
+    def fax_document(self, document: str) -> None:
+        print(f"Faxing: {document}")
+
+# Usage
+simple_printer = SimplePrinter()
+all_in_one = AllInOnePrinter()
+
+simple_printer.print_document("Hello, World!")
+all_in_one.print_document("Hello, World!")
+print(all_in_one.scan_document())
+all_in_one.fax_document("Hello, World!")
