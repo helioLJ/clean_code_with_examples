@@ -142,20 +142,25 @@ if __name__ == "__main__":
     primes = prime_gen.generate_primes()
     print(f"Primes up to 30: {primes}")
 
+
 # Liskov Substitution Principle (LSP)
 class Bird:
     def fly(self) -> str:
         return "I'm flying!"
 
+
 class Sparrow(Bird):
     pass  # Sparrow can use the parent's fly method
+
 
 class Ostrich(Bird):
     def fly(self) -> str:
         return "I can't fly, but I can run fast!"
 
+
 def make_bird_fly(bird: Bird) -> str:
     return bird.fly()
+
 
 # Usage
 sparrow = Sparrow()
@@ -166,24 +171,29 @@ print(make_bird_fly(ostrich))  # Output: I can't fly, but I can run fast!
 # Interface Segregation Principle (ISP)
 from abc import ABC, abstractmethod
 
+
 class Printer(ABC):
     @abstractmethod
     def print_document(self, document: str) -> None:
         pass
+
 
 class Scanner(ABC):
     @abstractmethod
     def scan_document(self) -> str:
         pass
 
+
 class Fax(ABC):
     @abstractmethod
     def fax_document(self, document: str) -> None:
         pass
 
+
 class SimplePrinter(Printer):
     def print_document(self, document: str) -> None:
         print(f"Printing: {document}")
+
 
 class AllInOnePrinter(Printer, Scanner, Fax):
     def print_document(self, document: str) -> None:
@@ -194,6 +204,7 @@ class AllInOnePrinter(Printer, Scanner, Fax):
 
     def fax_document(self, document: str) -> None:
         print(f"Faxing: {document}")
+
 
 # Usage
 simple_printer = SimplePrinter()
